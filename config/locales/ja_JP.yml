@@ -1,0 +1,685 @@
+# BigBlueButton open source conferencing system - http://www.bigbluebutton.org/.
+#
+# Copyright (c) 2018 BigBlueButton Inc. and by respective authors (see below).
+#
+# This program is free software; you can redistribute it and/or modify it under the
+# terms of the GNU Lesser General Public License as published by the Free Software
+# Foundation; either version 3.0 of the License, or (at your option) any later
+# version.
+#
+# BigBlueButton is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public License along
+# with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
+
+# Locale.
+
+ja_JP:
+  activerecord:
+    attributes:
+      user:
+        accepted_terms: "利用規約"
+        email: メールアドレス
+        name: 名前
+        password: パスワード
+        password_confirmation: パスワード確認
+        old_password: 前のパスワード
+    errors:
+      models:
+        user:
+          confirmation: 一致しません
+          attributes:
+            email:
+              invalid: Eメールの形式が正しくありません
+            password:
+              invalid: 十分に複雑ではありません 
+              
+  
+  administrator:
+    site_settings:
+      authentication:
+        disabled: 無効
+        enabled: 有効
+        info: サインインしたユーザーのみが会議に参加できるようにします
+        title: 入室を認証ユーザーに限定
+        user-info: この会議室に入るにはサインインが必要になります
+      branding:
+        change: 画像の変更
+        info: 左上に表示されるブランド画像を変更する
+        placeholder: 画像のURL...
+        title: ブランド画像
+        invalid: 無効なURL
+      legal:
+        change: URLの変更
+        info: ページ下部に現れる利用規約へのリンクを変更します
+        placeholder: 利用規約のURL...
+        title: 利用規約
+        invalid: 無効なURL
+      privpolicy:
+        change: URLの変更
+        info: ページの下方に表示されるプライベートポリシーへのリンクを変更する
+        placeholder: プライバシーポリシーのURL...
+        title: プライバシーポリシー
+        invalid: 無効なURL
+      cache:
+        info: 保存されているサービス提供元のキャッシュをクリアして情報の更新された新しいリクエストを強制する
+        title: サービス提供元キャッシュのクリア
+        button: キャッシュのクリア
+      clear_auth:
+        info: ユーザーの現在の認証システムをクリアして別の認証方法でサインインできるようにします
+        title: 現在の認証システムをクリア
+        button: 認証のクリア
+      color:
+        info: 基調色を変更すると、明色と暗色もそれに応じて変わります。明色と暗色を個別に変更することもできます
+        title: 色調
+        regular: 基調色
+        lighten: 明色
+        darken: 暗色
+      email_mapping:
+        info: "メールアドレスを使用してユーザーに役割を割り当てる。「メール1=役割1,メール2=役割2」の形式で記述する必要があります"
+        title: メールアドレスによる役割の割り当て
+        update:
+      log_level:
+        title: ログレベル
+        information: 配置されたすべてのログレベルを変更する
+        debug: デバッグ
+        info: 情報収集
+        warn: 警告
+        error: エラー
+        fatal: 致命的
+        unknown: 不明
+      recording_visibility:
+        info: 新しい録画の標準の公開方法を設定する
+        title: 録画の標準公開度
+        warning: この設定は実行していない会議室にのみ適用されます
+      require_consent:
+        info: これにより、会議室のオーナーが、部屋ごとの録画の可否を設定できるようになります。録画される会議に参加するユーザーからは、同意を得る必要があります。
+        title: 会議室のオーナーと参加者に、録画への同意を求める
+      maintenance_banner:
+        info: メンテナンスの予定をユーザーに通知するバナーを表示します
+        title: メンテナンスバナー
+        display: セットする
+        clear: 消去する
+        time: "例: アップデートが日本時間の12月13日23:00から予定されています。その間サインインがうまくできない可能性があります。"
+      preupload:
+        info: ユーザーがプレゼン資料を事前にアップロードできるようになります。この資料は、会議室限定の基本プレゼンとして使用されます。
+        title: プレゼン資料の事前アップロードを許可
+      registration:
+        info: ユーザーがWebサイトに登録する方法を変更します
+        title: 登録方法
+        methods:
+          approval: 承認制
+          invite: 招待制
+          open: 自由登録
+      rooms:
+        info: ユーザーが所有できる会議室の数を制限します(主会議室を含む)。 この設定は管理者には適用されません。
+        title: ユーザーあたりの会議室数
+      shared_access:
+        info: 無効に設定すると、各会議室のドロップダウンから「アクセス管理」ボタンが削除され、ユーザーが会議室を共有できなくなります
+        title: 会議室の共有を許可
+      subtitle: Greenlightのカスタマイズ
+      tabs:
+        appearance: 表示
+        administration: 管理
+        registration: 登録
+        settings: 設定
+      title: サイトの設定
+    flash:
+      approved: ユーザーが承認されました。
+      banned: ユーザーがロックされました。
+      unbanned: ユーザーのロックが解除されました。
+      delete: ユーザーが削除されました
+      delete_fail: ユーザーを削除できませんでした
+      demoted: ユーザーが降格されました
+      invite: "%{email} に招待状を送信しました"
+      invite_email_verification: この方法を使用するには、メールを有効にする必要があります。 システム管理者にお問い合わせください。
+      merge_fail: ユーザーアカウントの合併中に問題が発生しました。 選択したユーザーを確認して、もう一度お試しください
+      merge_success: ユーザーアカウントを合併しました
+      perm_deleted: ユーザーが完全に削除されました
+      promoted: ユーザーが昇格しました
+      registration_method_updated: 登録方法が更新されました
+      reset_password: パスワードをリセットするためのメールがユーザーに送信されました。 (受信していない場合は、迷惑メールフォルダを確認してみてください)
+      restored: ユーザーが復元されました
+      room_configuration: 会議室の設定が変更されました。
+      settings: サイト設定が変更されました
+      unauthorized: このユーザーにアクションを実行する権限がありません
+    recordings:
+      latest: 最近の録画
+      title: すべての録画
+      no_recordings: このサーバには録画がありません。
+      search_info: ユーザーの電子メールアドレスか、会議室のIDを入力して下さい。
+    roles:
+      appear_in_share_list: 会議室を共有するとき、この役割の人を選択可能にする
+      can_create_rooms: 会議室の作成権
+      can_launch_recording: 会議を録画する権限
+      delete: 役割の削除
+      invalid_create: 新しい役割の作成中に問題が発生しました。 設定を確認して再度お試しください
+      invalid_order: 役割の優先度を更新中に問題が発生しました。 設定を確認して再度お試しください
+      invalid_update: 役割の権限を更新中に問題が発生しました。 設定を確認して再度お試しください
+      manage_rooms_recordings: 会議室と録画を管理する権限
+      name: 役割の名前
+      new_role: 新しい役割を作成する
+      role_has_users: "この役割は %{user_count} アカウントに割り当てられています。 削除する前に、この役割からすべてのアカウントを削除してください。"
+      title: 役割
+      promote_email: この役割が割り当てられたときにはメールで知らせる
+      demote_email: この役割を解除されたときはメールで知らせる
+      edit_site_settings: サイト設定の編集権
+      edit_roles: 役割の編集権
+      manage_users: ユーザーの管理権
+      invalid_assignment: ユーザーへの役割設定中に問題が発生しました。 設定を確認して再度お試しください
+      colour:
+        title: 役割の色
+        info: 役割に関連付ける色を設定します
+    room_configuration:
+      title: 会議室の設定
+      mute:
+        info: ユーザーが会議に参加した時、自動的にミュートします。
+      require_moderator:
+        info: 会議への参加希望に対し、許可するかどうかいちいちモデレーターに問い合わせます。許可されればユーザーは参加できます。
+      allow_any:
+        info: 全てのユーザーがいつでも会議を開始することを許可します。通常は会議室のオーナーだけが会議を開始できます。
+      all_moderator:
+        info: すべてのユーザーに、会議に参加した時点で司会者の権限をあたえます。
+      recordings:
+        info: 会議室のオーナーが、会議を録画させるかどうかの選択肢を提供できるようになります。これをオンにしたとしても、録画を開始するためには、司会者は"録画"ボタンを押す必要があります。
+      moderator_codes:
+        info: 会議室の所有者に、モデレーターPINコードの発行を許可します。このコードがあれば、他のユーザーが直接モデレーターとして会議に参加できます。
+        title: モデレーター接続コード
+      options:
+        disabled: 常に無効
+        enabled: 常に有効
+        optional: 会議室ごとに設定
+    rooms:
+      timeout: "%{server}サーバへのリクエストがタイムアウトしたため、 ステータスと参加者の情報は正確でない可能性があります。"
+      title: すべての会議室
+      table:
+        ended: "会議終了: %{session}"
+        id: ID
+        not_running: 会議は行われていません
+        participants: 参加者
+        running: 会議中
+        started: "会議開始: %{session}"
+        status: 状況
+        view: 見る
+    title: 設定
+    users:
+      invite: ユーザーを招待する
+      edit:
+        title: ユーザーの詳細情報を編集
+      settings:
+        approve: 承認する
+        decline: 却下する
+        ban: ユーザーをロックする
+        delete: 削除する
+        edit: 編集する
+        edit_roles: ユーザーの役割を編集する
+        merge: 他のアカウントと合併
+        perm_delete: 完全に削除する
+        unban: ユーザーのロックを解除
+        undelete: 削除の取消
+      table:
+        authenticator: 認証元
+        created: アカウント作成
+        time: 送付時刻
+        name: 名前
+        not_found: 検索条件に一致するユーザーはいません
+        no_users: ユーザーが見つかりません
+        role: 役割
+        uid: ユーザーID
+        username: ユーザー名
+        valid: 有効
+      title: ユーザー管理
+  add_to_google_calendar: "Googleカレンダーに追加"
+  bigbluebutton: BigBlueButton
+  bigbluebutton_exception: 会議を開始するときにエラーが発生しました！
+  cancel: キャンセル
+  cookies:
+    cookie_info: Cookieはこのサービスの提供に使われています。 このサービスの利用によりCookieの使用に同意したことになります。
+    cookie_button: 同意する
+    policy: "詳しくは私たちの <a href=\"%{privacy_link}\"><u>プライバシーポリシー</u></a>をご覧ください。"
+  copied: コピー済み
+  copy: コピー
+  date:
+    month_names: [~, １月, ２月, ３月, ４月, ５月, ６月, ７月, ８月, ９月, 10月, 11月, 12月]
+  default_admin: "あなたはまだこのアカウントのデフォルトのパスワードを使用しています。 変更するには、<a href=\"%{edit_link}\">ここ</a>をクリックしてください"
+  delete: 削除
+  delivery_error: メール配信中にエラーが発生しました。 管理者に連絡してください！
+  docs: ドキュメント
+  email: メール
+  email_sent: "%{email_type} メールが送信されました！ (受信していない場合は、迷惑メールフォルダを確認してください)"
+  enter_your_name: あなたの名前を入力してください！
+  errors:
+    bigbluebutton:
+      help: "適切な手順がとられていることを確認してください。 <a href=\"%{doc_link}\">もっと詳しく知る</a>"
+      message: BigBlueButtonのエンドポイントとシークレットが無効です
+      title: サーバエラー
+    internal:
+      message: 何らかの問題が発生したようです。
+      help: エラーがログに記録されました。こちらで調べてみます！
+      report: 問題を報告
+    maintenance:
+      message: 申し訳ありませんが、メンテナンスのために停止しています。
+      help: まもなく復旧します！
+    migration_error:
+      contact_admin: あなたが管理者でない場合は、管理者に連絡してください。
+      continue: 1.0を使い続けたいです。
+      notice: >
+        Greenlightでデータベース移行エラーが発生しました。<br> Greenlight 2.0に更新していない可能性があります。
+      upgrade: 2.0にアップグレードする方法を教えて！
+      version: Greenlightの新しいバージョンをリリースしましたが、データベースには互換性がありません。
+    messages:
+      blank: 空白にすることはできません
+      too_short: 短すぎます
+      invalid: 無効です
+      taken: すでに使用されています
+      accepted: 受け入れる必要があります
+      confirmation: "%{attribute} と一致しません"
+      inclusion: リストに含まれていません
+      domain: "\"%{email_domain}\"で終わる必要があります"
+    no_provider:
+      message: アクセスしようとしているサイトは有効になっていません
+      help: Greenlightの設定については、システム管理者にお問い合わせください。
+    not_found:
+      message: お探しのページは存在しません。
+      help: 削除されている可能性はありませんか？
+      user_not_found:
+        help: 管理者にお問い合わせください。
+        message: このユーザーは登録されていません。
+      user_missing:
+        help: URLを確認して再度お試しください
+        message: 入力されたURLは無効です。
+    title: エラー
+    unauthorized:
+      message: このアプリケーションにアクセスできません
+      help: これが間違いだと思われる場合は、システム管理者に連絡してください。
+  expired_reset_token: パスワードリセットのリンクが切れています！
+  features:
+    title: の特長
+    rooms: 会議室の作成
+    recordings: 録画の管理
+    designs: デザインの調整
+    authentication: ユーザーの認証
+  footer:
+    legal: 利用規約
+    privpolicy: プライバシーポリシー
+    powered_by: "フロントエンド %{href}"
+  forgot_password:
+    subtitle: パスワードを忘れた場合
+    email: メールアドレス
+    submit: 送信
+  go_back: 戻る
+  greenlight: Greenlight
+  header:
+    all_recordings: すべての録画
+    dropdown:
+      account_settings: 設定
+      help: ヘルプ
+      home: ホーム
+      settings: プロフィール
+      signout: サインアウト
+  home_room: 主会議室
+  info_update_success: 情報を更新しました。
+  invalid_credentials: 入力されたメールアドレスとパスワードが登録内容と一致しませんでした。 もう一度試すか［パスワードを忘れた場合］をクリックしてパスワードをリセットしてください。
+  invalid_credentials_external: 入力したEメールアドレスとパスワードがこちらの記録と違っています。もう一度入力してみてください。
+  invalid_login_method: アカウントが一致しないため、ログインに失敗しました。 Omniauthでログインする必要があります。
+  invite_message: "誰かを会議に招待するには、このリンクを送信します："
+  javascript:
+    room:
+      mailer:
+        subject: 'さんから録画視聴に招待されました。'
+        body: '録画をご覧になるには、以下のリンクをクリックしてください：'
+        autogenerated: 'この電子メールはBigBlueButtonによって自動生成されました。'
+        footer: 'BigBlueButtonは、オープンソースのWeb会議システムです。 BigBlueButtonの詳細については、 https://bigbluebutton.org/ を参照してください。'
+    search:
+      start: 検索開始...
+  landing:
+    about: "%{href}は、オープンソースWeb会議サーバ BigBlueButton のシンプルなフロントエンドです。 自分の会議室を作成してセッションを主催したり、簡単なリンクを使用して他のユーザーを招待したりできます。"
+    welcome: BigBlueButton へようこそ
+    video: Greenlightの使い方に関するチュートリアルを見る
+    upgrade: 2.0にアップグレードする方法を教えて！
+    version: Greenlightの新しいバージョンをリリースしましたが、データベースには互換性がありません。
+  language_default: デフォルト(ブラウザの言語)
+  ldap_error: LDAPサーバーに接続できません。.envファイルのLDAP構成を確認しサーバが実行されていることを確認してください。
+  login: サインイン
+  login_page:
+    locked_out: あなたのアカウントは、何度もパスワードを間違えたためブロックされました。あとでもう一度やってみてください。
+  login_title: アカウントにサインイン
+  mailer:
+    user:
+      approve:
+        info: アカウントが承認されました。
+        signin: パーソナル会議室にアクセスするには、下のボタンをクリックしてサインインしてください。
+        signin_link: サインイン
+        signup:
+          info: 新しいユーザーがGreenlightを利用するためにサインアップしました。
+          more-info: このユーザーがGreenlightにアクセスできるようにするには、「構成の設定」でアカウントを承認する必要があります。
+          admins_link: 構成ページを見る
+          subject: 新しいGreenlightユーザーのサインアップ
+          username: "このユーザーは名前 %{name} とメールアドレス %{email} でサインアップしました。"
+        subject: アカウントが承認されました
+        username: "あなたのユーザー名は %{email} です。"
+      demoted:
+        info: "あなたは %{url} の %{role} ではなくなりました。"
+        more-info: これであなたに通常のユーザーと同じ権限が与えられました。
+        root_link: サインイン
+        subtitle: "%{role} の権限が取り消されました"
+      invite:
+        info: "%{name} があなたをパーソナルスペースに招待しました"
+        signup_info: メールを使ってサインアップするには、以下のボタンをクリックして、手順に従ってください。
+        signup_link: サインアップ
+        valid: "招待の有効期限: %{date}"
+        signup:
+          info: 招待されたユーザーがGreenlightを使用するためにサインアップしました。
+          admins_link: 構成ページにアクセス
+          subject: 新しいGreenlightユーザーのサインアップ
+          username: "このユーザーは %{name} という名前と %{email} というメールアドレスでサインアップしました。"
+        subject: BigBlueButtonへの招待
+        username: "あなたのユーザー名は %{email} です。"
+      password_reset:
+        title: 'パスワードのリセット'
+        welcome: "メールアドレス <b>%{email}</b> のパスワードリセットが要求されました。"
+        message: 'リセットをご希望の場合は、以下のリンクをクリックしてパスワードをリセットしてください：'
+        reset_link: パスワードのリセット
+        expire: このリンクは2時間で期限切れになります。
+        ignore: パスワードリセットを行わなかった場合は、このメールを無視しても問題ありません。
+      promoted:
+        admins_link: 設定ページにアクセス
+        info: "あなたは %{url} の %{role} になりました。"
+        more-info: "新しい機能を確認するには、 %{url} にアクセスしてください。"
+        subtitle: "%{role} 権限の付与"
+      verify_email:
+        welcome: "%{name}さん パーソナルスペースへようこそ！"
+        success: "%{bigbluebutton} を活用して、自分の会議室を作成したり、セッションをホストしたり、他のユーザーと共同作業したりできます。"
+        username: "あなたのユーザー名は %{email} です。"
+        verify: アカウントを確認するには、下のボタンをクリックしてください。
+        verify_text: 'アカウントを確認するには、次のリンクにアクセスしてください： %{url}'
+        verify_link: アカウントを確認
+        thanks: 参加していただきありがとうございます！
+  max_concurrent: 同時開催可能なセッションの最大数に達しました！
+  merged: 合併
+  modal:
+    create_role:
+      create: 新しい役割を作成
+      footer_text: 役割の作成後に、この役割の個々の権限を編集できます
+      name_placeholder: 役割名を入力してください...
+      not_blank: 役割名を空白にすることはできません。
+      title: 新しい役割を作成
+    create_room:
+      access_code: アクセスコード
+      moderator_access_code: モデレーターコード
+      access_code_placeholder: 会議室のアクセスコードを生成する
+      reset_access_code: 会議室のアクセスコードをリセットする
+      moderator_access_code_placeholder: モデレーターコードを作成する
+      reset_moderator_access_code: モデレーターコードをリセットする
+      auto_join: 会議に自動的に参加する
+      create: 会議室の作成
+      free_delete: この会議室はいつでも自由に削除できます。
+      name_placeholder: 会議室名を入力してください...
+      not_blank: 会議室名を空白にすることはできません。
+      title: 新しい会議室を作成
+    delete_account:
+      confirm: このアカウントを削除してもよろしいですか？
+      delete: このアカウントを削除します。
+      keep: やはり残します。
+      delete_warning: これによりユーザーのアカウントが無効になります。 無効化されたすべてのユーザーは［削除］タブに表示されます。
+      warning: この決定は最終的なものです。 関連するデータを回復することは<b>二度と</b>できません。
+    delete_rec:
+      delete: はい、削除します。
+      header: この録画を本当に削除してもよろしいですか？
+      warning: この録画を復活させることは<b>二度と</b>できません。
+    delete_room:
+      confirm: "%{room} を削除してもよろしいですか？"
+      delete: この会議室を削除します。
+      keep: やっぱり削除しません。
+      warning: この会議室を復活させることは<b>できません</b>　
+      recording_warning: "また、これに関連した　 %{recordings_num} 個の録画も同様です。"
+    invite_user:
+      email_placeholder: ユーザーのメールアドレスを入力してください（複数の場合は半角コンマ区切り）
+      footer: ユーザーには、サインアップ方法の説明が記載されたメールが届きます
+      send: 招待状を送る
+      title: ユーザーを招待
+    login:
+      or: あるいは
+      with: "%{provider} でサインイン"
+      forgot_password: パスワードをお忘れですか？
+    preupload:
+      change: プレゼン資料を置き換える
+      choose: ファイルを選択...
+      current: "現在のプレゼン資料: "
+      footer: プレゼン資料のサイズによっては、使用可能になるまでに更にアップロード時間が必要となることがあります。
+      invalid: サイズかファイルの種類が不適当です。下の制限事項をお読みください。
+      title: プレゼン資料の前置き
+      use: この資料を使う
+    rename_recording:
+    remove_shared:
+      title: この会議室を会議室リストから削除してもよろしいですか？
+      delete: この会議室を削除します。
+      warning: この会議室にアクセス<b>できなく</b>なります。
+    room_settings:
+      title: 会議室の設定
+      update: 会議室の更新
+      client: クライアントの種類を選択
+      join_moderator: すべてのユーザーがモデレータとして参加
+      mute: 参加時にユーザーをミュート
+      require_approval: 会議参加にモデレータの承認を必要とする
+      start: すべてのユーザーに会議の開始を許可
+      footer_text: 会議室の設定はいつでも変更可能です。
+      recording: 会議室の録画を許可
+    rename_room:
+      name_placeholder: 新しい会議室名を入力してください...
+    share_access:
+      footer: 会議室を共有すると、 他のユーザーも会議を開始したり録画リストを閲覧できます
+      list: 共有するユーザー
+      title: 会議室の共有
+      save: 変更を保存
+      cancel_changes: 変更をキャンセル
+      select: ユーザーの選択
+    merge_user:
+      cancel: キャンセル
+      from: 合併元のアカウント
+      title: ユーザーアカウントの合併
+      to: 合併先のアカウント
+      save: 合併する
+      footer: 合併元アカウントの会議室は、全て合併先の会議室リストにまず転送され、その後合併元アカウント自体が削除されます。
+  name_update_success: 会議室名が変更されました！
+  no_user_email_exists: 指定されたメールアドレスを持つユーザーは存在しません。 入力内容を確認してください。
+  omniauth_error: OmniAuthで認証中にエラーが発生しました。 再試行するか、管理者に連絡してください！
+  omniauth_specific_error: "OmniAuthで認証中に %{error} が発生しました。再試行するか、管理者に連絡してください！"
+  pagy:
+    nav:
+      prev: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      gap: "&hellip;"
+  password: パスワード
+  password_empty_notice: パスワードは空にできません。
+  password_reset_success: パスワードがリセットされました。
+  password_different_notice: パスワードが一致しません。
+  old_password_incorrect: 正しくありません
+  password_complexity:
+    minimum_len: 少なくとも8文字が必要です
+    one_lower_case: 少なくとも１文字が小文字である必要があります
+    one_upper_case: 少なくとも１文字が大文字である必要があります
+    one_digit: 少なくとも１文字が数字である必要があります
+    one_sym: 少なくとも１文字がアルファベットや数字以外の文字である必要があります
+  provider:
+    google: Google
+    office365: Office 365
+    twitter: Twitter
+    ldap: LDAP
+    openid_connect: OpenID接続
+  recaptcha:
+    errors:
+      recaptcha_unreachable: reCAPTCHA応答の検証に失敗しました。 もう一度お試しください。
+      verification_failed: reCAPTCHAの検証に失敗しました。 もう一度お試しください。
+  recording:
+    all_recordings: すべての録画
+    email: 録画情報をメールする
+    error: "%{count} 件の録画取得中にエラーが発生しました"
+    no_public_recordings: この会議室では録画の公開はありません。
+    no_recordings: この会議室には録画がありません。
+    no_user_recordings: 現在、録画はありません。
+    no_matched_pub_recordings: 公開された録画には、検索条件に一致するものはありません。
+    no_matched_recordings: 検索条件に一致する録画はありません。
+    recorded_on: " 録画日時：%{date} "
+    table:
+      name: 名前
+      thumbnails: サムネイル
+      length: 録画時間
+      users: 参加人数
+      visibility: 公開度
+      formats: 再生フォーマット
+    visibility:
+      inaccessible: 閲覧不可
+      public: 公開
+      unlisted: 限定公開
+    format:
+      notes: ノート
+      podcast: ポッドキャスト
+      presentation: プレゼン
+      statistics: 統計情報
+      video: ビデオ
+  registration:
+    approval:
+      fail: あなたのアカウントはまだ承認されていません。 サインアップしてから数日が経過した場合は、管理者に連絡してください。
+      signup: アカウントが作成されました。 承認のために管理者に送信されました。
+    banned:
+      fail: このアプリケーションにアクセスできません。 これが間違いだと思われる場合は、管理者に連絡してください。
+    deprecated:
+      new_signin: アカウントの新しいログイン方法を選択します。 古いアカウントの会議室はすべて新しいアカウントに移行されます。
+      twitter_signin: "Twitter経由でのサインインは非推奨となっており、次のリリースで削除される予定です。<a href=\"%{link}\">ここ</a>をクリックして、アカウントを新しい認証方法に移行してください"
+      twitter_signup: Twitterからのサインアップは非推奨となりました。 別の登録方法をご利用ください。
+      merge_success: Twitterアカウントと新しいアカウントを正常に統合しました。 古いTwitterアカウントは削除されました
+    invite:
+      fail: トークンが無効であるか、期限が切れています。 これが間違いだと思われる場合は、管理者に連絡してください。
+      no_invite: 招待状がありません。 管理者に連絡して、招待状を受け取ってください。
+    insecure_password: アカウントのセキュリティを高めるため、全てのパスワードについて複雑さを向上させています。以下の条件に合うように新しいパスワードを設定してください。
+  remove: 削除
+  rename: 名前の変更
+  reset_password:
+    captcha: reCAPTCHAの検証に失敗しました。 もう一度お試しください。
+    complexity: パスワードの複雑さが十分ではありません。
+    invalid_token: パスワードの再設定トークンが正しくありません。パスワードの再設定をもう一度行ってみてください。
+    subtitle: パスワードを再設定する
+    password: 新しいパスワード
+    confirm: 新しいパスワードの確認
+    update: パスワードの更新
+    auth_change: 認証方法が変更になりました。 メールをご確認の上、パスワードを設定してください。
+  roles:
+    active: アクティブ
+    admin: 管理者
+    banned: ロック
+    deleted: 削除
+    pending: 保留
+    invited: 招待
+    user: ユーザー
+  room:
+    access_code_required: 会議に参加するには、有効なアクセスコードを入力してください
+    add_presentation: プレゼン資料の前置き
+    copy_access: アクセスコードをコピー
+    copy_moderator_access: モデレーターコードをコピーする
+    create_room: 会議室の作成
+    create_room_error: 会議室の作成中にエラーが発生しました
+    create_room_success: 会議室が作成されました
+    delete:
+      home_room: 主会議室は削除できません
+      success: 会議室を削除しました
+      fail: "会議室の削除に失敗しました(%{error})"
+    enter_the_access_code: 会議室のアクセスコードを入力してください
+    enter_the_moderator_access_code: モデレーターコードを使用して会議室に入室する
+    optional_moderator_access_code: "モデレーターコード"
+    invalid_provider: 無効なURLを入力しました。 URLを確認して、もう一度試してみてください。
+    invitation_description: "BigBlueButtonを使用して%{name}に参加するよう招待されました。参加するためには下のリンクをクリックし、名前を入力してください。"
+    invited: 招待されています
+    recording_present: このセッションが録画されるかもしれないこと、その場合自分の声や動画が録画に含まれうることを承知しています。
+    invite_participants: 参加者を招待する
+    join: 参加する
+    last_session: "最後のセッション：%{session}"
+    login: 入力
+    owner: オーナー
+    owner_banned: この会議室は現在利用できません
+    no_room:
+      description: 参加する会議室のURLまたはIDを入力します。
+      edit_profile: ユーザープロファイルの編集
+      go_to: 会議室へ
+      invalid_room_uid: 入力された会議室の URL/UID は無効です
+      placeholder: 会議室の URL/UID
+      no_recent_rooms: 最近参加した会議室はありません
+      recent_rooms: 最近参加した会議室に移動
+      title: 会議に参加
+    no_sessions: まだ会議は一度も開催されていません！
+    preupload_success: プレゼン資料を追加しました
+    preupload_error: 会議室のプレゼン資料をアップデートする際にエラーが起こりました
+    preupload_remove_success: プレゼン資料を消去しました
+    preupload_remove_error: 会議室のプレゼン資料を消去する際にエラーが起こりました
+    recordings: 会議室の録画
+    room_limit: 許可された会議室数の上限に達しました
+    room_limit_exceeded: "許可された会議室数を超えています。 この会議室にアクセスするには、会議室を %{difference} 個削除してください。"
+    sessions: セッション
+    settings: 会議室の設定
+    share: アクセス管理
+    shared_by: "%{email} により共有"
+    remove_shared_access_success: 会議室リストから共有会議室を削除しました
+    remove_shared_access_error: リストから共有会議室を削除中にエラーが発生しました
+    shared_access_success: 会議室を共有しました
+    shared_access_error: 会議室の共有設定中にエラーが発生しました
+    start: 開始
+    search: 会議室を探す...
+    unavailable: この会議室はオーナーのメールが確認されていないため、現在利用できません。
+    update_settings_error: 会議室の設定更新中にエラーが発生しました
+    update_settings_success: 会議室の設定を更新しました
+    wait:
+      message: 会議はまだ開始されていません。
+      auto: 会議が始まれば自動的に参加します。
+  settings:
+    account:
+      fullname: フルネーム
+      language: 言語
+      provider: 認証元
+      image: プロフィール画像
+      image_url: プロフィール画像のURL
+      roles: ユーザーの役割
+      subtitle: アカウント情報を更新する
+      title: アカウント情報
+      reset_password: ユーザーのパスワードを再設定する
+    delete:
+      button: はい、アカウントを削除します
+      disclaimer: アカウントを削除した場合、アカウントを回復することは<b>できません</b>。 設定、会議室、録画など、アカウントに関するすべての情報が削除されます。
+      subtitle: アカウントを完全に削除する
+      title: アカウントの削除
+    password:
+      confirmation: 新しいパスワードの確認
+      new: 新しいパスワード
+      old: 古いパスワード
+      subtitle: パスワードの変更
+      title: パスワード
+    title: プロフィール
+    search: 検索
+  signup:
+    password_confirm: パスワード確認
+    subtitle: アカウントを作成する
+    title: サインアップ
+    with: "%{provider} でサインアップ"
+  terms:
+    accept: "%{href} を受け入れます"
+    accept_existing: 利用規約に同意します
+    title: 利用規約
+  test_install: >
+    この構成では、事前に構成されたテストサーバを使用しています。これを独自のものに置き換える必要があります。 詳細については %{href} をご覧ください。
+  time:
+    formats:
+      default: "%Y年%-m月-%d日 %-I:%M%P"
+  update: 更新
+  verify:
+    accept: 確認
+    activated: アカウントが確認されました！
+    already_verified: アカウントはすでに確認されています
+    invalid: 無効な確認リンク
+    not_verified: あなたのアカウントはまだ確認されていません。
+    resend: 確認メールを再送
+    signin: アカウントにアクセスするにはサインインしてください。
+    title: メールを確認します
+    verification: 検証
+  session:
+    expired: セッションの期限切れです（もう一度サインインしてください）。

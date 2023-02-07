@@ -1,0 +1,65 @@
+<%
+# BigBlueButton open source conferencing system - http://www.bigbluebutton.org/.
+# Copyright (c) 2018 BigBlueButton Inc. and by respective authors (see below).
+# This program is free software; you can redistribute it and/or modify it under the
+# terms of the GNU Lesser General Public License as published by the Free Software
+# Foundation; either version 3.0 of the License, or (at your option) any later
+# version.
+#
+# BigBlueButton is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+# You should have received a copy of the GNU Lesser General Public License along
+# with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
+%>
+
+<tr>
+  <td>
+    <div id="recording-title" class="edit_hover_class" data-recordid="<%= recording[:recordID] %>" data-room-uid="<%= room_uid_from_bbb(recording[:meetingID]) %>" data-path="<%= rename_recording_path(meetingID: recording[:meetingID], record_id: recording[:recordID]) %>">
+      <% if recording[:metadata][:name] %>
+        <span id="recording-text" title="<%= recording[:metadata][:name] %>">
+          <%= html_entities_decode(recording[:metadata][:name]) %>
+      <% else %>
+        <span id="recording-text" title="<%= recording[:name] %>">
+          <%= html_entities_decode(recording[:name]) %>
+      <% end %>
+        </span>
+    </div>
+    <div class="small text-muted">
+      <%= t("recording.recorded_on", date: view_date(recording[:startTime])).html_safe %>
+    </div>
+  </td>
+  <% if recording_thumbnails? %>
+    <td class="overflow-hidden">
+      <% p = recording[:playbacks].find do |p| p.key?(:preview) end %>
+      <% if p %>
+        <% safe_recording_images(p[:preview][:images][:image]).each do |img| %>
+          <%= image_tag(img[:content].strip, class: "thumbnail px-2") %>
+        <% end %>
+      <% end %>
+    </td>
+  <% end %>
+  <td id="recording-length" class="text-left" data-full-length="<%=recording[:playbacks].first[:length]%>">
+    <%= recording_length(recording[:playbacks]) %>
+  </td>
+  <td id="recording-users" class="text-left">
+    <%= recording[:participants] %>
+  </td>
+  <td class="text-left">
+    <div class="dropdown">
+      <% if recording[:metadata][:"gl-listed"] == "true" %>
+        <i class="dropdown-icon fas fa-globe px-2"></i> <%= t("recording.visibility.public") %>
+      <% else %>
+        <i class="dropdown-icon fas fa-link px-2"></i> <%= t("recording.visibility.unlisted") %>
+      <% end %>
+    </div>
+  </td>
+  <td>
+    <% sorted_formats = recording[:playbacks].sort_by! {|p| p[:type]} %>
+    <% p = recording[:playbacks].find do |p| p.key?(:length) end %>
+    <% sorted_formats.each do |p| %>
+      <% next if hidden_format_public.include?(p[:type].downcase)%>
+      <%= link_to t("recording.format.#{p[:type]}"), p[:url], class: "btn btn-sm btn-primary", target: "_blank" %>
+    <% end %>
+  </td>
+</tr>

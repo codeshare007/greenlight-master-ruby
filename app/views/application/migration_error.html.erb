@@ -1,0 +1,27 @@
+<%
+# BigBlueButton open source conferencing system - http://www.bigbluebutton.org/.
+# Copyright (c) 2018 BigBlueButton Inc. and by respective authors (see below).
+# This program is free software; you can redistribute it and/or modify it under the
+# terms of the GNU Lesser General Public License as published by the Free Software
+# Foundation; either version 3.0 of the License, or (at your option) any later
+# version.
+#
+# BigBlueButton is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+# You should have received a copy of the GNU Lesser General Public License along
+# with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
+%>
+
+<div class="container text-center pt-9">
+  <i class="fas fa-database fa-6x mb-4"></i>
+  <h1 class="h3 mb-2"><%= t("errors.migration_error.notice").html_safe %></h1>
+  <p class="h4 text-muted font-weight-normal mb-7"><%= t("errors.migration_error.contact_admin") %></p>
+  <h1 class="h3 mb-3"><%= t("errors.migration_error.version") %></h1>
+  <a class="btn btn-success mt-3 mx-3" href="http://docs.bigbluebutton.org/install/greenlight-v2.html#upgrading-from-greenlight-10" target="_blank" rel="noopener">
+    <i class="far fa-star mr-2"></i><%= t("errors.migration_error.upgrade") %>
+  </a>
+  <a class="btn btn-info mt-3 mx-3 w-20" href="http://docs.bigbluebutton.org/install/greenlight-v2.html#remaining-on-greenlight-10" target="_blank" rel="noopener">
+    <i class="far fa-hand-paper mr-2"></i><%= t("errors.migration_error.continue") %>
+  </a>
+</div>

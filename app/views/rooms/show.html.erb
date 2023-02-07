@@ -1,0 +1,147 @@
+<%
+# BigBlueButton open source conferencing system - http://www.bigbluebutton.org/.
+# Copyright (c) 2018 BigBlueButton Inc. and by respective authors (see below).
+# This program is free software; you can redistribute it and/or modify it under the
+# terms of the GNU Lesser General Public License as published by the Free Software
+# Foundation; either version 3.0 of the License, or (at your option) any later
+# version.
+#
+# BigBlueButton is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+# You should have received a copy of the GNU Lesser General Public License along
+# with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
+%>
+
+<% exceeds_limit = current_room_exceeds_limit(@room)%>
+<% if exceeds_limit%>
+  <div class="alert alert-danger alert-dismissible text-center mb-0">
+    <%= t("room.room_limit_exceeded", difference: @diff) %>
+  </div>
+<% end %>
+<div class="background pb-1">
+  <div class="container">
+    <div class="row pt-7 pt-sm-9 mb-7">
+      <div class="col-lg-9 col-sm-12">
+        <div id="room-title" class="display-3 form-inline <%= 'edit_hover_class' if current_user.main_room != @room %>" data-path="<%= update_settings_path(@room) %>">
+           <h1 contenteditable=false id="user-text" class="display-3 text-left mb-3 font-weight-400 text-break"><%= title(@room.name) %></h1>
+          <% if current_user.main_room == @room %>
+            <a class="disable-click"><i class="fas fa-home align-top home-indicator ml-2"></i></a>
+          <% else %>
+            <a><i id="edit-room" class="fa fa-edit align-top home-indicator ml-2" data-edit-room="<%= @room.uid %>"></i></a>
+          <% end %>
+        </div>
+        <h4 class="text-left mb-6"><%= @room.sessions %> <%= t("room.sessions") %><% unless hide_recording_tables %> | <%= @recordings.length %> <%= t("room.recordings") %><% end %></h4>
+        <% unless exceeds_limit %>
+          <label class="form-label"><%= t("room.invite_participants") %></label>
+          <div class="row">
+            <div class="col-lg-6 col-md-12 mt-2">
+              <div class="input-icon invite-link-input">
+                <span class="input-icon-addon">
+                  <i class="fas fa-link"></i>
+                </span>
+                <input id="invite-url" type="text" class="form-control w-100" value="<%= request.base_url + @room.invite_path %>" readonly="">
+              </div>
+            </div>
+            <div class="col-lg-6 pr-lg-7 col-md-12 pl-lg-0">
+              <div class="row">
+                <div class="col-sm-6 mt-2">
+                  <button id="copy-invite" class="btn btn-primary btn-block" onclick="copyInvite()">
+                    <i class="fas fa-copy mr-1"></i>
+                    <%= t("copy") %>
+                  </button>
+                </div>
+                <div class="btn-group-vertical col-sm-6 pl-0 mt-2">
+                  <% if @room.access_code.present? %>
+                    <input id="copy-code" value="<%= @room.access_code %>" type="hidden">
+                    <button id="copy-access" class="btn btn-secondary btn-block" onclick="copyAccess()">
+                      <i class="fas fa-copy mr-1"></i>
+                      <%= t("room.copy_access") %>
+                    </button>
+                  <% end %>
+                  <% if moderator_code_allowed? && @room.moderator_access_code.present? %>
+                    <input id="copy-moderator-code" value="<%= @room.moderator_access_code %>" type="hidden">
+                    <button id="copy-moderator-access" class="btn btn-secondary btn-block" onclick="copyAccess('moderator')">
+                      <i class="fas fa-copy mr-1"></i>
+                      <%= t("room.copy_moderator_access") %>
+                    </button>
+                  <% end %>
+                  <% if Rails.configuration.enable_google_calendar_button %>
+                    <a href="<%= google_calendar_path %>" target="__blank" id="schedule" class="btn btn-primary btn-block mt-2">
+                      <i class="fas fa-calendar-plus"></i>
+                      <%= t("add_to_google_calendar") %>
+                    </a>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-lg-3 col-sm-12 force-bottom mt-5">
+        <% if @room_running %>
+          <%= button_to t("room.join"), room_path(@room), class: "btn btn-primary btn-block start-button float-right", "data-disable": "" %>
+        <% else %>
+          <% unless exceeds_limit %>
+            <%= button_to t("room.start"), start_room_path(@room), class: "btn btn-primary btn-block start-button float-right", "data-disable": "" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <% if total_room_count(current_user) > 5 %>
+      <div class="input-icon invite-link-input mb-3">
+        <span class="input-icon-addon">
+          <i class="fas fa-search"></i>
+          </span>
+        <input id="room-search" type="text" placeholder="<%= t("room.search") %>" class="form-control w-100" onChange="filterRooms()" onKeyUp="filterRooms()">
+        <span id="clear-room-search" class="text-primary" onclick="clearRoomSearch()">
+          <i class="fas fa-times"></i>
+        </span>
+      </div>
+    <% end %>
+
+    <div id="room_block_container" class="row mb-5">
+      <% if current_user.role.get_permission("can_create_rooms") %>
+        <% current_user.ordered_rooms.each do |room| %>
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <%= link_to room do %>
+              <%= render "rooms/components/room_block", room: room %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <% if shared_access_allowed %>
+        <% current_user.shared_rooms.each do |room| %>
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <%= link_to room do %>
+              <%= render "rooms/components/shared_room_block", room: room %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <% if current_user.role.get_permission("can_create_rooms") && !room_limit_exceeded %>
+        <%= render "rooms/components/create_room_block"%>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<% unless hide_recording_tables %>
+  <%= render "shared/sessions", recordings: @recordings, pagy: @pagy, only_public: false, shared_room: @shared_room, user_recordings: false, title: t("room.recordings")%>
+<% end %>
+
+<%= render "shared/modals/delete_room_modal" %>
+
+<%= render "shared/modals/create_room_modal" %>
+
+<% if preupload_allowed? %>
+  <%= render "shared/modals/preupload_presentation_modal" %>
+<% end %>
+
+<% if shared_access_allowed %>
+  <%= render "shared/modals/share_room_modal" %>
+  <%= render "shared/modals/remove_access_modal" %>
+<% end %>

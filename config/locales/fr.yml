@@ -1,0 +1,685 @@
+# BigBlueButton open source conferencing system - http://www.bigbluebutton.org/.
+#
+# Copyright (c) 2018 BigBlueButton Inc. and by respective authors (see below).
+#
+# This program is free software; you can redistribute it and/or modify it under the
+# terms of the GNU Lesser General Public License as published by the Free Software
+# Foundation; either version 3.0 of the License, or (at your option) any later
+# version.
+#
+# BigBlueButton is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public License along
+# with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
+
+# Locale.
+
+fr:
+  activerecord:
+    attributes:
+      user:
+        accepted_terms: "Conditions générales d'utilisation"
+        email: Adresse électronique
+        name: Nom
+        password: Mot de passe
+        password_confirmation: Confirmation du mot de passe
+        old_password: Ancien mot de passe
+    errors:
+      models:
+        user:
+          confirmation: ne correspond pas
+          attributes:
+            email:
+              invalid: format du courriel non-valide
+            password:
+              invalid: ne répond pas aux exigences de complexité 
+              
+  
+  administrator:
+    site_settings:
+      authentication:
+        disabled: Désactivé
+        enabled: Activé
+        info: Autoriser uniquement les utilisateurs authentifiés à rejoindre une salle
+        title: Authentification requise pour rejoindre les salles
+        user-info: Vous devez vous identifier pour rejoindre cette salle.
+      branding:
+        change: Changer l'image
+        info: Change le logo qui apparaît en haut à gauche
+        placeholder: URL de l'image...
+        title: Logo
+        invalid: URL invalide
+      legal:
+        change: Changer d'URL
+        info: Modifier le lien vers les conditions d'utilisation en bas de la page
+        placeholder: Lien vers les conditions d'utilisation...
+        title: Conditions d'utilisation
+        invalid: URL invalide
+      privpolicy:
+        change: Changer d'URL
+        info: Modifier le lien de la politique de confidentialité qui apparaît au bas de la page
+        placeholder: Politique de confidentialité URL ...
+        title: Politique de confidentialité
+        invalid: URL invalide
+      cache:
+        info: "Efface le cache distant, forçant ainsi la récupération des informations courantes"
+        title: Vider le cache fournisseur
+        button: Vider le cache
+      clear_auth:
+        info: Supprimer le mode d'authentification actuel des utilisateurs afin de leur  permettre de choisir un autre mode d'authentification
+        title: Supprimer le mode d'authentification
+        button: Supprimer Auth
+      color:
+        info: "Modifier la couleur standard modifiera également les couleurs \"Clair\" et \"Sombre\". Par la suite, les couleurs \"Clair\" et \"Sombre\" peuvent être modifiées individuellement."
+        title: Couleur principale
+        regular: Standard
+        lighten: Plus clair
+        darken: Plus sombre
+      email_mapping:
+        info: "Associez l'utilisateur à un role en utilisant son adresse électronique. Doit être au format email1=role1,email2=role2"
+        title: Mapping des rôles par adresse électronique
+        update:
+      log_level:
+        title: Verbosité du journal
+        information: Changer la verbosité du journal pour tout le déploiement
+        debug: Déboguage
+        info: Information
+        warn: Attention
+        error: Erreur
+        fatal: Erreur fatale
+        unknown: Inconnu
+      recording_visibility:
+        info: Modifier la visibilité par défaut pour les nouveaux enregistrements
+        title: Visibilité d'un enregistrement par défaut
+        warning: Ce réglage ne sera appliqué qu'aux salles actuellement inactives
+      require_consent:
+        info: Ce paramètre permet aux propriétaires de salles de spécifier celles qui peuvent être enregistrées. Les utilisateurs qui se joignent à une salle enregistrée doivent donner leur accord avant de la rejoindre.
+        title: Requiert pour l'enregistrement les consentements du propriétaire de la salle et de celui qui la rejoint.
+      maintenance_banner:
+        info: Affiche un bandeau informant l'utilisateur d'une maintenance programmée
+        title: Bandeau de maintenance
+        display: Définir
+        clear: Effacer
+        time: "Exemple : Mise à jour prévue le 13 décembre à 23:00. Les utilisateurs peuvent rencontrer des problèmes pour se connecter."
+      preupload:
+        info: Les utilisateurs peuvent précharger une présentation qui sera utilisée comme présentation par défaut pour cette salle spécifique
+        title: Permettre aux utilisateurs de précharger des présentations
+      registration:
+        info: Modifier le mode d'inscription pour le site
+        title: Méthode d'inscription
+        methods:
+          approval: Approuver/Refuser
+          invite: Rejoindre sur invitation
+          open: Inscription ouverte
+      rooms:
+        info: Limiter le nombre maximum de salles qu'un utilisateur peut avoir (Salle d'Accueil incluse). Ce réglage n'affecte pas les administrateurs.
+        title: Nombre de salles par utilisateur
+      shared_access:
+        info: "En désactivant, le bouton de partage sera supprimé de la liste des options de la salle, empêchant ainsi les utilisateurs de partager des salles"
+        title: Autorise les utilisateurs à partager la salle
+      subtitle: Personnaliser Greenlight
+      tabs:
+        appearance: Apparence
+        administration: Administration
+        registration: Inscription
+        settings: "Paramètres "
+      title: Paramètres du site
+    flash:
+      approved: L'utilisateur a été approuvé.
+      banned: L'utilisateur a été banni.
+      unbanned: L'utilisateur n'est plus banni.
+      delete: Utilisateur supprimé
+      delete_fail: Impossible de supprimer l'utilisateur
+      demoted: L'utilisateur a été rétrogradé
+      invite: "Invitation envoyée à %{email}"
+      invite_email_verification: Les courriels doivent être activés pour utiliser cette méthode. Veuillez contacter votre administrateur système.
+      merge_fail: Un problème est survenu lors de la fusion des comptes de l'utilisateur. Veuillez vérifier la sélection et réessayer
+      merge_success: Les comptes de l'utilisateur ont bien été fusionnés
+      perm_deleted: L'utilisateur a été définitivement supprimé
+      promoted: L'utilisateur a bien été promu.
+      registration_method_updated: La méthode d'inscription a été mise à jour.
+      reset_password: "Un courriel a été envoyé à l'utilisateur afin de réinitialiser son mot de passe. (S'il ne l'a pas reçu, demandez-lui de vérifier son dossier \"spam/indésirables\")"
+      restored: L'utilisateur a bien été réintégré
+      room_configuration: La configuration de la salle a bien été modifiée
+      settings: Les paramètres du site ont bien été modifiés
+      unauthorized: Vous n'êtes pas autorisé à effectuer cette action sur cet utilisateur.
+    recordings:
+      latest: Derniers enregistrements
+      title: Enregistrements du serveur
+      no_recordings: Ce serveur n'a pas d'enregistrement.
+      search_info: Saisissez l'adresse électronique complète d'un utilisateur ou l'identifiant d'une salle
+    roles:
+      appear_in_share_list: Inclure les utilisateurs ayant ce rôle dans la liste déroulante de partage des salles
+      can_create_rooms: Peut créer des salles
+      can_launch_recording: Permet aux utilisateurs ayant ce rôle d'enregistrer leurs réunions
+      delete: Supprimer le rôle
+      invalid_create: Il y a eu un problème lors de la création du nouveau rôle. Veuillez vérifier les valeurs entrées et réessayer.
+      invalid_order: Il y a eu un problème lors de la mise à jour du rôle comme prioritaire. Veuillez vérifier les valeurs et réessayer.
+      invalid_update: Il y a eu un problème lors de la mise à jour des permissions du rôle. Veuillez vérifier les valeurs et réessayer.
+      manage_rooms_recordings: Permet aux utilisateurs ayant de ce rôle de gérer les salles et les enregistrements
+      name: Nom du rôle
+      new_role: Créer un nouveau rôle
+      role_has_users: "Ce rôle est utilisé par %{user_count} comptes. Veuillez retirer ce rôle de tous les comptes avant de le supprimer."
+      title: Rôles
+      promote_email: Envoyer un courriel aux utilisateurs quand ce rôle leur est attribué
+      demote_email: Envoyer un e-mail aux utilisateurs quand ce rôle leur est retiré
+      edit_site_settings: Permet aux utilisateurs ayant ce rôle de modifier les paramètres du site
+      edit_roles: Permet aux utilisateurs ayant ce rôle de modifier les autres rôles
+      manage_users: Permet aux utilisateurs ayant ce rôle de gérer les utilisateurs
+      invalid_assignment: Un problème a été rencontré lors de l'attribution du rôle à l'utilisateur. Veuillez vérifier les valeurs entrées et réessayer.
+      colour:
+        title: Couleur du rôle
+        info: Définir la couleur qui sera associée au rôle
+    room_configuration:
+      title: Configuration de la salle
+      mute:
+        info: Rendre automatiquement silencieux les utilisateurs lorsqu'ils rejoignent la réunion BigBlueButton
+      require_moderator:
+        info: "Avertit le modérateur d'une conférence BigBlueButton lorsqu'un utilisateur essaye de se connecter. Si l'utilisateur est approuvé, il pourra se joindre à la réunion."
+      allow_any:
+        info: "Permet à n'importe quel utilisateur de démarrer la réunion à n'importe quel moment. Par défaut, seul le propriétaire peut démarrer la réunion."
+      all_moderator:
+        info: Donne à tous les utilisateurs les droits de modérateur  lors de leur connexion à la réunion dans BigBlueButton.
+      recordings:
+        info: "Permet aux propriétaires d'une salle de préciser s'ils souhaitent ou non avoir la possibilité d'enregistrer. Si cette option est activée, le modérateur doit toujours cliquer sur le bouton « Enregistrer » une fois que la réunion a commencé."
+      moderator_codes:
+        info: Permet aux propriétaires de salles de générer un code qui donne   aux autres utilisateurs directement un accès en tant que modérateur.
+        title: Code d'accès modérateur
+      options:
+        disabled: Désactivé
+        enabled: Toujours activé
+        optional: Facultatif
+    rooms:
+      timeout: "En raison du délai de  %{server}  du serveur, les informations relatives au statut et aux participants peuvent ne pas être exactes"
+      title: Serveur des salles
+      table:
+        ended: "Terminé:%{session}"
+        id: ID
+        not_running: Pas ouvert
+        participants: Participants
+        running: Ouvert
+        started: "Démarrage de :%{session}"
+        status: Statut
+        view: Voir
+    title: Paramètres de l'organisation
+    users:
+      invite: Inviter utilisateur
+      edit:
+        title: Modifier les détails de l'utilisateur
+      settings:
+        approve: Approuver
+        decline: Décliner
+        ban: Bannir l'utilisateur
+        delete: Supprimer
+        edit: Modifier
+        edit_roles: Modifier les rôles de l'utilisateur
+        merge: Fusionner
+        perm_delete: Supprimer définitivement
+        unban: Réintégrer l'utilisateur
+        undelete: Annuler la suppression
+      table:
+        authenticator: Authentifiant
+        created: Créé
+        time: Heure d'envoi
+        name: Nom
+        not_found: Aucun utilisateur ne correspond à votre recherche
+        no_users: Aucun utilisateur trouvé
+        role: Rôle
+        uid: ID utilisateur
+        username: Nom d'utilisateur
+        valid: Valide
+      title: Gérer les utilisateurs
+  add_to_google_calendar: "Ajouter au calendrier Google"
+  bigbluebutton: BigBlueButton
+  bigbluebutton_exception: "Oups, une erreur s'est produite lors du démarrage de la réunion !"
+  cancel: Annuler
+  cookies:
+    cookie_info: "Les cookies nous aident à fournir nos services. En utilisant nos services, vous acceptez notre utilisation des cookies."
+    cookie_button: Je suis d'accord
+    policy: "Pour plus d'informations, voir notre <a href=\"%{privacy_link}\"><u>politique de confidentialité</u></a>."
+  copied: Copié
+  copy: Copier
+  date:
+    month_names: [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
+  default_admin: "Vous utilisez toujours le mot de passe par défaut pour ce compte. Veuillez cliquer <a href=\"%{edit_link}\">ici</a> pour le modifier"
+  delete: Supprimer
+  delivery_error: Une erreur s'est produite lors de la livraison du courriel. Veuillez contacter un administrateur !
+  docs: Documentation
+  email: Courriel
+  email_sent: "Votre courriel de %{email_type} a bien été envoyée ! (Vérifiez votre dossier des indésirables/spam si vous ne le trouvez pas)"
+  enter_your_name: Entrez votre nom !
+  errors:
+    bigbluebutton:
+      help: "Veuillez vous assurer que les mesures appropriées ont été prises.<a href=\"%{doc_link}\">En savoir plus</a>"
+      message: BigBlueButton Endpoint et Secret non valide.
+      title: Erreur serveur
+    internal:
+      message: Il semblerait que quelque chose se soit mal passé de notre côté.
+      help: "L'erreur a été enregistrée, nous allons jeter un coup d’œil !"
+      report: Signaler un problème
+    maintenance:
+      message: "Désolé, nous sommes indisponibles pour maintenance."
+      help: Nous serons bientôt de retour !
+    migration_error:
+      contact_admin: "Si vous n’êtes pas un administrateur, veuillez en contacter un."
+      continue: Je veux continuer à utiliser la 1.0.
+      notice: >
+        Greenlight a rencontré une erreur de migration de la base de données.<br> C'est peut-être parce que vous n'avez pas mis à jour vers Greenlight 2.0.
+      upgrade: Montrez-moi comment passer à la version 2.0 !
+      version: "Nous avons publié une nouvelle version de Greenlight, mais votre base de données n'est pas compatible."
+    messages:
+      blank: ne peut pas être vide
+      too_short: est trop court
+      invalid: est non-valide
+      taken: a déjà été utilisé
+      accepted: doit être accepté
+      confirmation: "ne correspond pas à %{attribute}"
+      inclusion: n'est pas inclus dans la liste
+      domain: "doit terminer avec \"%{email_domain}\""
+    no_provider:
+      message: Le site auquel vous essayez d'accéder n'est pas activé
+      help: Veuillez contacter votre administrateur système pour installer GreenLight
+    not_found:
+      message: Désolé ! La page que vous cherchez n'existe pas.
+      help: "Est-il possible qu'il ait été supprimé ?"
+      user_not_found:
+        help: Veuillez contacter un administrateur.
+        message: "Désolé, cet utilisateur n'est pas enregistré."
+      user_missing:
+        help: Veuillez vérifier l'URL et réessayer
+        message: L'URL que vous avez saisie n'est pas valide.
+    title: Erreurs
+    unauthorized:
+      message: Vous n'avez pas accès à cette application
+      help: "Si vous pensez que c'est une erreur, veuillez contacter votre administrateur système."
+  expired_reset_token: Le lien de réinitialisation du mot de passe a expiré !
+  features:
+    title: "Fonctionnalités "
+    rooms: "Salles Personnalisés "
+    recordings: Gestion des enregistrements
+    designs: Designs personnalisés
+    authentication: Authentification de l'utilisateur
+  footer:
+    legal: Conditions d'utilisation
+    privpolicy: Politique de confidentialité
+    powered_by: "Conçu par %{href}."
+  forgot_password:
+    subtitle: Mot de passe oublié
+    email: Email
+    submit: Soumettre
+  go_back: Retour
+  greenlight: Greenlight
+  header:
+    all_recordings: Tous les enregistrements
+    dropdown:
+      account_settings: Organisation
+      help: "Besoin d'aide ?"
+      home: Accueil
+      settings: Profil
+      signout: Déconnexion
+  home_room: Salle d’Accueil
+  info_update_success: Informations mises à jour avec succès.
+  invalid_credentials: "Les informations d'identification que vous avez indiquées sont erronées. Veuillez réessayer ou cliquez sur « Mot de passe oublié ? » pour réinitialiser votre mot de passe."
+  invalid_credentials_external: "Le courriel et le mot de passe renseignés ne correspondent pas à celles que nous détenons. Merci de réessayer. "
+  invalid_login_method: La connexion a échoué en raison d'une incompatibilité de compte. Vous devez vous connecter avec omniauth.
+  invite_message: "Pour inviter quelqu'un à la réunion, envoyez-lui ce lien :"
+  javascript:
+    room:
+      mailer:
+        subject: 'vous a invité à visionner un enregistrement.'
+        body: 'Pour visionner l''enregistrement, suivez le lien ci-dessous :'
+        autogenerated: 'Ce courriel est généré automatiquement par BigBlueButton.'
+        footer: 'BigBlueButton est un système de web-conférence open-source. Pour plus d''informations sur BigBlueButton, voir https://bigbluebutton.org/.'
+    search:
+      start: Commencer la recherche...
+  landing:
+    about: "%{href} est une interface simple pour votre serveur de web- conférence open-source BigBlueButton. Vous pouvez créer vos propres salles pour héberger des sessions ou  en rejoindre d'autres  via un lien court et pratique. "
+    welcome: Bienvenue sur BigBlueButton.
+    video: Regardez notre tutoriel sur l'utilisation de Greenlight
+    upgrade: Montrez-moi comment passer à la version 2.0 !
+    version: "Nous avons publié une nouvelle version de Greenlight, mais votre base de données n'est pas compatible."
+  language_default: Par défaut (langue du navigateur)
+  ldap_error: Impossible de se connecter au serveur LDAP. Veuillez vérifier votre configuration LDAP dans le fichier env et vous assurer que votre serveur est en cours d'exécution.
+  login: S'identifier
+  login_page:
+    locked_out: Votre compte a été bloqué à cause de plusieurs tentatives de connexion infructueuses. Merci de recommencer plus tard.
+  login_title: Connexion à votre compte
+  mailer:
+    user:
+      approve:
+        info: Votre compte a été approuvé.
+        signin: "Pour accéder à vos salles personnelles, cliquez sur le bouton ci-dessous et identifiez-vous."
+        signin_link: Connexion
+        signup:
+          info: Un nouvel utilisateur s'est inscrit pour utiliser Greenlight.
+          more-info: "Pour autoriser cet utilisateur à accéder à Greenlight, vous devez approuver son compte depuis la page \"Organisation\"."
+          admins_link: Visitez la page "Organisation"
+          subject: Inscription d'un nouvel utilisateur Greenlight
+          username: "L'utilisateur s'est inscrit avec le nom %{name} et l'adresse email %{email}. "
+        subject: Compte approuvé
+        username: "Votre nom d'utilisateur est %{email}."
+      demoted:
+        info: "Vous n'êtes plus %{role} sur %{url}."
+        more-info: Vous avez désormais les mêmes privilèges qu'un utilisateur standard.
+        root_link: S'identifier
+        subtitle: "Droits pour %{role} annulés"
+      invite:
+        info: "Vous avez été invité dans votre espace personnel par %{name}"
+        signup_info: "Pour vous inscrire utilisez votre adresse courriel, cliquez sur le bouton ci-dessous et suivez les étapes."
+        signup_link: Inscription
+        valid: "L'invitation est valable jusqu'à: %{date}"
+        signup:
+          info: Un utilisateur invité s'est inscrit pour utiliser Greenlight.
+          admins_link: Visitez la page "Organisation"
+          subject: Inscription d'un nouvel utilisateur Greenlight
+          username: "L'utilisateur s'est inscrit avec le nom %{name} et l'adresse email %{email}."
+        subject: Invitation à joindre BigBlueButton
+        username: "Votre nom d'utilisateur est %{email}."
+      password_reset:
+        title: 'Réinitialiser le mot de passe'
+        welcome: "Une réinitialisation du mot de passe a été demandée pour l'e-mail <b>%{email}</b>"
+        message: 'Si vous avez demandé cette réinitialisation, veuillez cliquer sur le lien ci-dessous pour réinitialiser votre mot de passe :'
+        reset_link: Réinitialiser le mot de passe
+        expire: Ce lien expirera dans deux heures.
+        ignore: Vous pouvez ignorer cette demande si vous n'êtes pas à l'origine de celle-ci.
+      promoted:
+        admins_link: Visitez la page de l'organisation
+        info: "Vous êtes maintenant un %{role} sur %{url}."
+        more-info: "Pour voir vos nouvelles possibilités, veuillez visiter %{url}"
+        subtitle: "%{role} droits attribués"
+      verify_email:
+        welcome: "Bienvenue sur votre espace personnel, %{name}!"
+        success: "Profitez pleinement de %{bigbluebutton}, vous pouvez créer vos propres salles pour héberger des sessions et collaborer avec d'autres."
+        username: "Votre nom d'utilisateur est %{email}."
+        verify: "Pour valider votre compte, cliquez simplement sur le bouton ci-dessous."
+        verify_text: 'Pour valider votre compte, suivez ce lien : %{url}'
+        verify_link: Validation du compte
+        thanks: Merci de votre participation et bonne journée !
+  max_concurrent: Le nombre maximum autorisé pour des sessions simultanées a été atteint !
+  merged: Fusionné
+  modal:
+    create_role:
+      create: Créer un nouveau rôle
+      footer_text: Vous pouvez modifier les autorisations individuelles pour ce rôle après l'avoir créé
+      name_placeholder: Saisissez un nom de rôle...
+      not_blank: Le nom du rôle ne peut pas être vide.
+      title: Créer un nouveau rôle
+    create_room:
+      access_code: Code d'accès
+      moderator_access_code: Code modérateur
+      access_code_placeholder: Générer un code d'accès à la salle - optionnel
+      reset_access_code: Réinitialiser le code d'accès à la salle - optionnel
+      moderator_access_code_placeholder: "Générer un code optionnel pour les modérateurs "
+      reset_moderator_access_code: Réinitialiser le code optionnel pour les modérateurs
+      auto_join: Me faire entrer dans la salle dès la création de celle-ci terminée
+      create: Créer une salle
+      free_delete: Vous serez libre de supprimer cette salle à tout moment.
+      name_placeholder: Entrez un nom de salle...
+      not_blank: Le nom de salle ne peut être vide.
+      title: Créer une nouvelle Salle
+    delete_account:
+      confirm: "Voulez-vous vraiment supprimer ce compte ?"
+      delete: "Je confirme, supprimez ce compte."
+      keep: "En fait, je vais le garder."
+      delete_warning: Cela désactivera le compte de l'utilisateur. Tous les utilisateurs désactivés se trouvent sous l'onglet supprimé.
+      warning: Cette décision est définitive. Vous ne pourrez <b>pas</b>  récupérer les données associées.
+    delete_rec:
+      delete: "Oui, supprimer cet enregistrement."
+      header: "Voulez-vous vraiment supprimer cet enregistrement ?"
+      warning: Vous ne pourrez pas récupérer cet enregistrement
+    delete_room:
+      confirm: "Êtes-vous sûr de vouloir supprimer %{room}?"
+      delete: "Je suis sûr, supprimer cette salle."
+      keep: "À bien y réfléchir, je vais la garder."
+      warning: Vous <b>ne pourrez pas</b> récupérer cette salle
+      recording_warning: "ni aucun de ses %{recordings_num} enregistrements associés"
+    invite_user:
+      email_placeholder: Saisissez les courriels des utilisateurs (séparés par des virgules)
+      footer: L'utilisateur recevra un courriel avec des instructions sur la façon de s'inscrire
+      send: Envoyer invitation
+      title: Inviter utilisateur
+    login:
+      or: ou
+      with: "S'identifier avec %{provider}"
+      forgot_password: "Mot de passe oublié ?"
+    preupload:
+      change: Remplacer document présenté
+      choose: Choisissez un fichier...
+      current: "Document actuellement présenté :"
+      footer: "Selon la taille du document à présenter, son téléchargement peut nécessiter un délai supplémentaire avant qu'il puisse être utilisée."
+      invalid: Taille/type de fichier non valable. Veuillez consulter les restrictions ci-dessous.
+      title: Ajouter un document
+      use: Utiliser un document de présentation
+    rename_recording:
+    remove_shared:
+      title: "Voulez-vous vraiment supprimer cette salle de votre liste ?"
+      delete: "Je suis sûr, supprimez cette salle."
+      warning: <b>Vous ne pourrez plus</b> accéder à cette salle.
+    room_settings:
+      title: Paramètres de la salle
+      update: Mise à jour de la salle
+      client: Sélectionnez le type de client
+      join_moderator: Tous les utilisateurs joignent la salle en tant que modérateurs
+      mute: Mettre les utilisateurs en mode silencieux lors de la connexion
+      require_approval: Exiger l'approbation du modérateur avant de rejoindre la réunion
+      start: Autoriser tout utilisateur à démarrer cette réunion
+      footer_text: Vous pouvez modifier les réglages de votre salle à tout moment.
+      recording: Autoriser l'enregistrement d'une salle
+    rename_room:
+      name_placeholder: Entrez un nouveau nom de salle...
+    share_access:
+      footer: Partager une salle avec un utilisateur lui permet d'y accéder et de visualiser les enregistrements qu'elle contient.
+      list: Partager avec
+      title: Partager l'accès à la salle
+      save: Enregistrer les modifications
+      cancel_changes: Annuler les modifications
+      select: Sélectionnez utilisateur
+    merge_user:
+      cancel: Annuler
+      from: Compte à fusionner
+      title: Fusionner les comptes de l'utilisateur
+      to: Compte principal
+      save: Fusionner
+      footer: "Les salles du compte à fusionner seront transférées sur la liste des salles du compte principal, puis le compte sera supprimé."
+  name_update_success: Le nom de la salle a bien été changé  !
+  no_user_email_exists: Il n'existe aucun utilisateur avec le courriel indiqué. Veuillez vérifier que vous l'avez saisi correctement.
+  omniauth_error: Une erreur est survenue lors de l'authentification avec omniauth. Veuillez réessayer ou contacter un administrateur !
+  omniauth_specific_error: "%{error} s'est produite lors de l'authentification avec omniauth. Veuillez réessayer ou contacter un administrateur !"
+  pagy:
+    nav:
+      prev: "&lsaquo; Précédent"
+      next: "Suivant &rsaquo;"
+      gap: "&hellip;"
+  password: Mot de passe
+  password_empty_notice: Le mot de passe ne peut être vide.
+  password_reset_success: Le mot de passe a été réinitialisé.
+  password_different_notice: "Inadéquation de la confirmation du mot de passe "
+  old_password_incorrect: est erroné
+  password_complexity:
+    minimum_len: Au moins 8 caractères
+    one_lower_case: Au moins 1 minuscule
+    one_upper_case: Au moins 1 majuscule
+    one_digit: Au moins 1 chiffre
+    one_sym: Au moins 1 caractère non-alphanumérique
+  provider:
+    google: Google
+    office365: Office 365
+    twitter: Twitter
+    ldap: LDAP
+    openid_connect: OpenID Connect
+  recaptcha:
+    errors:
+      recaptcha_unreachable: "Oups, nous n'avons pas réussi à valider votre réponse reCAPTCHA. Veuillez réessayer."
+      verification_failed: "La vérification de reCAPTCHA a échoué, veuillez réessayer."
+  recording:
+    all_recordings: Tous les enregistrements
+    email: Envoyer l'enregistrement par courriel
+    error: "Il y a eu une erreur lors de la récupération de %{count}  enregistrement(s)"
+    no_public_recordings: Cette salle n'a pas d'enregistrement public.
+    no_recordings: Cette salle n'a pas d'enregistrement.
+    no_user_recordings: "Actuellement, vous n'avez  aucun enregistrement."
+    no_matched_pub_recordings: Aucun enregistrement public ne correspond à votre recherche.
+    no_matched_recordings: Aucun enregistrement ne correspond à votre recherche.
+    recorded_on: "Enregistré le %{date}"
+    table:
+      name: Nom
+      thumbnails: Vignettes
+      length: Longueur
+      users: Utilisateurs
+      visibility: Visibilité
+      formats: Formats
+    visibility:
+      inaccessible: Inaccessible
+      public: Public
+      unlisted: Non Listé
+    format:
+      notes: Notes
+      podcast: Podcast
+      presentation: Présentation
+      statistics: Statistiques
+      video: Vidéo
+  registration:
+    approval:
+      fail: "Votre compte n'a pas encore été validé. Si plusieurs jours se sont découlés depuis votre inscription, veuillez contacter votre administrateur."
+      signup: Votre compte a bien été créé. Il a été envoyé à un administrateur pour validation.
+    banned:
+      fail: "Vous n'avez pas accès à cette application. Si vous pensez qu'il s'agit d'une erreur, veuillez contacter votre administrateur."
+    deprecated:
+      new_signin: Veuillez sélectionner une nouvelle méthode de connexion pour votre compte. Toutes les salles de votre ancien compte seront transférées sur le nouveau compte
+      twitter_signin: "La connexion par Twitter est obsolète et va être enlevée de la prochaine version. Veuillez cliquer <a href=\"%{link}\">ici</a> afin de changer la méthode d'authentification de votre compte"
+      twitter_signup: L'inscription par Twitter est obsolète. Veuillez utiliser une autre méthode d'inscription
+      merge_success: Intégration du compte Twitter avec votre nouveau compte réussie. Votre ancien compte Twitter a été enlevé
+    invite:
+      fail: "Votre jeton d'authentification a expiré ou n'est pas valide. Si vous pensez qu'il s'agit d'une erreur, veuillez contacter votre administrateur."
+      no_invite: Vous n'avez pas d'invitation. Veuillez contacter votre administrateur afin d'en recevoir une.
+    insecure_password: "Afin d'améliorer la sécurité des comptes, nous avons augmenté la complexité des mots de passe pour tous. Veuillez créer un nouveau mot de passe qui réponde aux exigences indiquées ci-dessous."
+  remove: Enlever
+  rename: Renommer
+  reset_password:
+    captcha: "La vérification de reCAPTCHA a échoué, veuillez réessayer."
+    complexity: Le mot de passe ne répond pas aux exigences de complexité
+    invalid_token: Le jeton de réinitialisation du mot de passe n'est pas valide. Veuillez essayer de réinitialiser votre mot de passe à nouveau.
+    subtitle: Réinitialiser le mot de passe
+    password: Nouveau mot de passe
+    confirm: Confirmation du nouveau mot de passe
+    update: Mettre à jour le mot de passe
+    auth_change: La méthode d'authentification a changé. Veuillez consulter votre e-mail afin de définir votre mot de passe.
+  roles:
+    active: Actif
+    admin: Admin
+    banned: Banni
+    deleted: Supprimé
+    pending: En attente
+    invited: Invité
+    user: Utilisateur
+  room:
+    access_code_required: Veuillez introduire un code d'accès valide afin de rejoindre la salle
+    add_presentation: Ajouter présentation
+    copy_access: Copier le code d'accès
+    copy_moderator_access: Copier le code modérateur
+    create_room: Créer une salle
+    create_room_error: Une erreur s'est produite lors de la création de la salle
+    create_room_success: La salle a bien été créée
+    delete:
+      home_room: Impossible de supprimer la Salle d'Accueil de l'utilisateur
+      success: Salle supprimée
+      fail: "Erreur lors de la suppression de la salle (%{error})"
+    enter_the_access_code: Veuillez saisir le code d'accès de la salle
+    enter_the_moderator_access_code: Saisissez le code modérateur !
+    optional_moderator_access_code: "Code modérateur optionnel:"
+    invalid_provider: Vous avez saisi une url non valide. Veuillez vérifier l'url et essayez à nouveau.
+    invitation_description: "Vous avez été invité à rejoindre 1%{name} en utilisant  BigBlueButton. Pour ce faire, cliquez sur le lien ci-dessus et saisissez votre nom."
+    invited: Vous avez été invité à rejoindre
+    recording_present: Je reconnais que cette session va être enregistrée. Cela peut inclure ma voix et la vidéo si elle est activée.
+    invite_participants: Inviter des participants
+    join: Rejoindre
+    last_session: "Dernière session le %{session}"
+    login: Entrer
+    owner: Propriétaire
+    owner_banned: Cette salle est indisponible pour l'instant
+    no_room:
+      description: Veuillez saisir l'url ou l'identifiant de la salle que vous voulez rejoindre.
+      edit_profile: Modifier le profil utilisateur
+      go_to: Aller à la salle
+      invalid_room_uid: "L'url/uid de la salle que vous avez introduit n'est pas valide. "
+      placeholder: url/uid de la salle
+      no_recent_rooms: Aucune salle visitée récemment
+      recent_rooms: Revenir dans une salle récemment visitée
+      title: Rejoindre une salle
+    no_sessions: Cette salle n'a pas encore de session !
+    preupload_success: Document de présentation ajouté avec succès
+    preupload_error: Erreur lors du chargement du document de présentation
+    preupload_remove_success: Présentation supprimée avec succès
+    preupload_remove_error: "Erreur lors de la suppression du document de présentation "
+    recordings: Enregistrements de la salle
+    room_limit: Vous avez atteint le nombre maximum de salles autorisé
+    room_limit_exceeded: "Vous avez dépassé le nombre de salles autorisé. Veuillez supprimer %{difference}salle(s) pour pouvoir accéder à cette salle."
+    sessions: Sessions
+    settings: Paramètres de la salle
+    share: Gérer le partage de la salle
+    shared_by: "Partagé par %{email}"
+    remove_shared_access_success: Salle partagée supprimée avec succès de votre liste de salles
+    remove_shared_access_error: Une erreur est survenue lors de la suppression de la salle partagée de votre liste
+    shared_access_success: La salle a bien été partagée
+    shared_access_error: Il y a eu une erreur lors du partage de la salle
+    start: Démarrer
+    search: Rechercher une salle...
+    unavailable: Cette salle est actuellement indisponible car l'adresse électronique du propriétaire n'a pas été validée.
+    update_settings_error: Une erreur s'est produite lors de la mise à jour des paramètres de la salle.
+    update_settings_success: Les paramètres de la salle ont bien été mis à jour
+    wait:
+      message: La réunion n'a pas encore commencé.
+      auto: "Dès son démarrage, vous rejoindrez la réunion automatiquement. "
+  settings:
+    account:
+      fullname: Nom complet
+      language: Langue
+      provider: Fournisseur
+      image: Image
+      image_url: URL de l'image du profil
+      roles: Rôle de l'utilisateur
+      subtitle: Mettre à jour les informations de votre compte
+      title: Informations de compte
+      reset_password: Réinitialiser le mot de passe de l'utilisateur
+    delete:
+      button: "Oui, je souhaiterais supprimer mon compte."
+      disclaimer: "Si vous choisissez de supprimer votre compte, il NE sera <b>PAS</b> récupérable. Toutes les informations concernant votre compte, y compris les paramètres, les salles et les enregistrements seront supprimées."
+      subtitle: Supprimer Définitivement votre Compte
+      title: Supprimer Compte
+    password:
+      confirmation: Confirmation du nouveau mot de passe
+      new: Nouveau Mot de passe
+      old: Ancien Mot de passe
+      subtitle: Modifier votre mot de passe
+      title: Mot de passe
+    title: Profil
+    search: Chercher
+  signup:
+    password_confirm: Confirmation du mot de passe
+    subtitle: Créer un Compte
+    title: S’inscrire
+    with: "S'inscrire via %{provider}"
+  terms:
+    accept: "J'accepte les %{href}"
+    accept_existing: J'accepte les conditions générales d'utilisation
+    title: Conditions générales d'utilisation
+  test_install: >
+    Ce déploiement utilise un serveur de test pré-configuré, vous devez le remplacer par le vôtre. Pour plus de détails, voir le %{href}.
+  time:
+    formats:
+      default: "%a %d %b %Y %H:%M"
+  update: Mise à jour
+  verify:
+    accept: Vérifier
+    activated: Compte validé !
+    already_verified: Le compte a déjà été validé
+    invalid: Lien de vérification non-valide
+    not_verified: Votre compte n'a pas encore été validé.
+    resend: Renvoyer le courriel de vérification
+    signin: Veuillez vous connecter pour accéder à votre compte.
+    title: Vérifiez votre adresse électronique
+    verification: Validation
+  session:
+    expired: La session a expiré (Veuillez vous connecter à nouveau).

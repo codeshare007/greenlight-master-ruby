@@ -1,0 +1,63 @@
+<%
+# BigBlueButton open source conferencing system - http://www.bigbluebutton.org/.
+# Copyright (c) 2018 BigBlueButton Inc. and by respective authors (see below).
+# This program is free software; you can redistribute it and/or modify it under the
+# terms of the GNU Lesser General Public License as published by the Free Software
+# Foundation; either version 3.0 of the License, or (at your option) any later
+# version.
+#
+# BigBlueButton is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+# You should have received a copy of the GNU Lesser General Public License along
+# with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
+%>
+
+<% content_for(:page_desc) { t("room.invitation_description", name: @room.name) } %>
+
+<% access_code_set = @room.access_code.present? %>
+<% valid_access_code = access_code_set && @room.access_code == session[:access_code] %>
+<% moderator_access_code_set = @room.moderator_access_code.present? && moderator_code_allowed? %>
+<% valid_moderator_access_code = valid_moderator_access_code(session[:moderator_access_code]) %>
+<% authorized = valid_access_code || valid_moderator_access_code || !access_code_set %>
+
+<%= render 'rooms/components/room_event', render_recordings: authorized do %>
+  <% if room_authentication_required %>
+    <h2><%= t("administrator.site_settings.authentication.user-info") %></h2>
+  <% elsif authorized %>
+    <%= form_for room_path(@room), method: :post do |f| %>
+      <div class="input-group">
+        <%= f.hidden_field(:search, :value => params[:search])%>
+        <%= f.hidden_field(:column, :value => params[:column])%>
+        <%= f.hidden_field(:direction, :value => params[:direction])%>
+        <%= f.text_field :join_name,
+            required: true,
+            class: "form-control join-form",
+            placeholder: t("enter_your_name"),
+            value: "#{@name}",
+            readonly: !current_user.nil?, 
+            autofocus: true,
+            maxlength: 99
+            %>
+        <span class="input-group-append">
+          <button id="room-join" type="submit" class="btn btn-primary btn-sm px-7 form-control join-form">
+            <%= (!@room_running && @anyone_can_start) ? t("room.start") : t("room.join") %>
+          </button>
+        </span>
+      </div>
+      <% if display_joiner_consent %>
+        <label class="custom-control custom-checkbox">
+          <input id="joiner-consent" type="checkbox" class="custom-control-input" required>
+          <h4 class="text-left text-danger mt-4 custom-control-label"><%= t("room.recording_present") %></h4>
+        </label>
+      <% end %>
+    <% end %>
+    <% if moderator_access_code_set && !valid_moderator_access_code %>
+      <!-- <hr class="mt-2 float-right w-100 moderator-code-hr"> -->
+      <label class="moderator-code-label form-label"><%= t("room.optional_moderator_access_code") %></label>
+      <%= render "rooms/components/enter_access_code_form", access_code_type: 'moderator' %>
+    <% end %>
+  <% else %>
+    <%= render "rooms/components/enter_access_code_form", access_code_type: 'standard_access' %>
+  <% end %>
+<% end %>

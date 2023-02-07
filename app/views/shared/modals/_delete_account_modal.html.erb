@@ -1,0 +1,44 @@
+<%
+# BigBlueButton open source conferencing system - http://www.bigbluebutton.org/.
+# Copyright (c) 2018 BigBlueButton Inc. and by respective authors (see below).
+# This program is free software; you can redistribute it and/or modify it under the
+# terms of the GNU Lesser General Public License as published by the Free Software
+# Foundation; either version 3.0 of the License, or (at your option) any later
+# version.
+#
+# BigBlueButton is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+# You should have received a copy of the GNU Lesser General Public License along
+# with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
+%>
+
+<div class="modal fade" id="deleteAccountModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content text-center">
+      <div class="modal-body">
+        <div class="card-body p-6">
+          <div class="card-title">
+            <h3><%= t("modal.delete_account.confirm") %></h3>
+          </div>
+
+          <button type="button" class="btn btn-info my-1 btn-del-room" data-dismiss="modal">
+            <%= t("modal.delete_account.keep") %>
+          </button>
+
+          <%= button_to delete_location, method: :delete, id: "delete-confirm", class: "btn btn-danger my-1 btn-del-room", disabled:"", "data-disable": "" do %>
+            <%= t("modal.delete_account.delete") %>
+          <% end %>
+
+        </div>
+        <div class="card-footer">
+          <label class="custom-control custom-checkbox">
+            <input id="delete-checkbox" type="checkbox" class="custom-control-input">
+            <p id="perm-delete" class="custom-control-label"><%= t("modal.delete_account.warning").html_safe %></p>
+            <p id="delete-warning" class="custom-control-label"><%= t("modal.delete_account.delete_warning").html_safe %></p>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

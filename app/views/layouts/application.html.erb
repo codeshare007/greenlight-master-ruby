@@ -1,0 +1,93 @@
+<%
+# BigBlueButton open source conferencing system - http://www.bigbluebutton.org/.
+# Copyright (c) 2018 BigBlueButton Inc. and by respective authors (see below).
+# This program is free software; you can redistribute it and/or modify it under the
+# terms of the GNU Lesser General Public License as published by the Free Software
+# Foundation; either version 3.0 of the License, or (at your option) any later
+# version.
+#
+# BigBlueButton is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+# You should have received a copy of the GNU Lesser General Public License along
+# with BigBlueButton; if not, see <http://www.gnu.org/licenses/>.
+%>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <% if Rails.configuration.google_analytics %>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="<%= google_analytics_url %>"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', "<%= ENV["GOOGLE_ANALYTICS_TRACKING_ID"] %>");
+      </script>
+    <% end %>
+
+    <title><%= yield(:page_title).present? ? yield(:page_title) : t("bigbluebutton") %></title>
+    <meta property="og:title" content="<%= yield(:page_title).present? ? yield(:page_title) : t("bigbluebutton") %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content=<%=user_locale(@room&.owner)%> />
+    <meta property="og:description" content="<%= yield(:page_desc).present? ? yield(:page_desc) : t("landing.about", href: "Greenlight", locale: :en) %>" />
+    <meta property="og:url" content="<%= request.base_url %>" />
+    <meta property="og:image" content="<%= logo_image %>" />
+    <meta name="viewport" content= "width=device-width, user-scalable=no">
+    <%= csrf_meta_tags %>
+
+    <!-- Global javascript variables and helpers. -->
+    <script type="text/javascript">
+      window.GreenLight = {};
+      window.GreenLight.WEBSOCKET_HOST = "<%= ENV['WEBSOCKET_HOST'] %>"
+      window.GreenLight.RELATIVE_ROOT = "<%= relative_root %>"
+    </script>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= favicon_link_tag asset_path('favicon.ico') %>
+
+    <!-- Primary color styling -->
+    <%= stylesheet_link_tag themes_primary_path %>
+
+    <script type="text/javascript">
+      // Include the correct translated strings for Javascript
+      window.I18n = <%= current_translations.to_json.html_safe %>
+      window.I18nFallback = <%= fallback_translations.to_json.html_safe %>
+    </script>
+  </head>
+
+  <body class="app-background" data-controller="<%= controller_name %>" data-action="<%= action_name %>" data-relative-root="<%= Rails.configuration.relative_url_root || "/" %>">
+    <%= render "shared/header" %>
+
+    <div class="wrapper">
+      <% if bigbluebutton_endpoint_default? %>
+        <div class="alert alert-icon alert-danger text-center mb-0">
+          <div class="flash alert d-inline">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p class="d-inline"><%= t("test_install",
+              href: link_to(t("docs").downcase, "http://docs.bigbluebutton.org/install/greenlight-v2.html#2-install-greenlight", target: "_blank", rel: "noopener")
+            ).html_safe %>
+          </div>
+        </div>
+      <% end %>
+
+      <% unless Rails.configuration.banner_message.blank? %>
+        <div class="alert alert-icon alert-danger text-center mb-0">
+          <div class="flash alert d-inline">
+            <p class="d-inline"><%= Rails.configuration.banner_message %></p>
+          </div>
+        </div>
+      <% end %>
+
+      <%= render 'shared/flash_messages' unless flash.empty? %>
+
+      <%= yield %>
+    </div>
+
+    <%= render "shared/footer" %>
+  </body>
+</html>
